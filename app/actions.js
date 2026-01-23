@@ -4,8 +4,6 @@ const googleScriptURL =
   "https://script.google.com/macros/s/AKfycbyw6ZRLpFD89nRvBAmzKWionPOy_CVf9X6Bcma42Yia3ZwyCwOf6CouKRk6cAVxGG97BQ/exec";
 
 export const addRegistration = async (formData) => {
-  console.log("addRegistration called with:", formData);
-
   const nickName = formData.nickName;
   const age = formData.age;
   const maritalStatus = formData.maritalStatus;
@@ -31,6 +29,7 @@ export const addRegistration = async (formData) => {
   const reference3 = formData.reference3;
   const instagram = formData.instagram;
   const whatsapp = formData.whatsapp;
+  const source = formData.source;
 
   const payload = {
     nickName,
@@ -58,13 +57,10 @@ export const addRegistration = async (formData) => {
     reference3,
     instagram,
     whatsapp,
+    source,
   };
 
-  console.log("Payload being sent:", payload);
-
   try {
-    console.log("Making fetch request to:", googleScriptURL);
-
     const res = await fetch(googleScriptURL, {
       method: "POST",
       headers: {
@@ -72,9 +68,6 @@ export const addRegistration = async (formData) => {
       },
       body: JSON.stringify(payload),
     });
-
-    console.log("Fetch response status:", res.status);
-    console.log("Fetch response ok:", res.ok);
 
     if (!res.ok) {
       const errorText = await res.text();

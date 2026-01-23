@@ -259,6 +259,69 @@ export default function Step5Survey({ formData, updateFormData, onSubmit }) {
             <p className="text-red-500 text-xs mt-1 ">{errors.whatsapp}</p>
           )}
         </div>
+
+        {/* Source */}
+        <div>
+          <label
+            htmlFor="source"
+            className="block text-sm font-semibold text-textdesc mb-2 "
+          >
+            Kamu tahu Experience Date ini dari mana?
+          </label>
+          <div className="space-y-2">
+            <div className="flex items-center">
+              <input
+                type="radio"
+                id="source-option1"
+                name="source"
+                value="Tiktok"
+                checked={formData.source === "Tiktok"}
+                onChange={handleInputChange}
+                className="w-4 h-4 focus:ring-[var(--color-ftomain)]"
+              />
+              <label
+                htmlFor="source-option1"
+                className="ml-2 text-sm  text-textdesc"
+              >
+                Tiktok
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                type="radio"
+                id="source-option2"
+                name="source"
+                value="Instagram"
+                checked={formData.source === "Instagram"}
+                onChange={handleInputChange}
+                className="w-4 h-4 focus:ring-[var(--color-ftomain)]"
+              />
+              <label
+                htmlFor="source-option2"
+                className="ml-2 text-sm  text-textdesc"
+              >
+                Instagram
+              </label>
+            </div>
+            <div className="flex items-center">
+              <input
+                type="radio"
+                id="source-option3"
+                name="source"
+                value="Threads"
+                checked={formData.source === "Threads"}
+                onChange={handleInputChange}
+                className="w-4 h-4 focus:ring-[var(--color-ftomain)]"
+              />
+              <label
+                htmlFor="source-option3"
+                className="ml-2 text-sm  text-textdesc"
+              >
+                Threads
+              </label>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="flex gap-4 pt-6">

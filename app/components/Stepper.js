@@ -46,6 +46,7 @@ export default function Stepper() {
     reference3: "",
     instagram: "",
     whatsapp: "",
+    source: "",
   });
   const router = useRouter();
 
@@ -201,7 +202,7 @@ export default function Stepper() {
                         : "bg-gray-200"
                     }`}
                   />
-                )
+                ),
               )}
             </div>
           </div>
