@@ -27,6 +27,10 @@ export default function Step1Intro({ formData, updateFormData, onNext }) {
       newErrors.backStory = "Tolong ceritakan sedikit tentang dirimu";
     if (!formData.yourPhase?.trim())
       newErrors.yourPhase = "Tolong jelaskan fase hidup kamu saat ini";
+    if (!formData.height?.trim())
+      newErrors.height = "Tolong isi tinggi badan kamu";
+    if (!formData.weight?.trim())
+      newErrors.weight = "Tolong isi berat badan kamu";
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
@@ -62,6 +66,46 @@ export default function Step1Intro({ formData, updateFormData, onNext }) {
         )}
       </div>
 
+      {/* Gender */}
+        <div>
+          <label
+            htmlFor="gender"
+            className="block text-sm font-semibold text-textdesc mb-2 "
+          >
+            Gender
+          </label>
+          <div className="flex space-x-6">
+            <div className="flex items-center">
+          <input
+            type="radio"
+            id="laki-laki"
+            name="gender"
+            value="Laki-laki"
+            checked={formData.gender === "Laki-laki"}
+            onChange={handleInputChange}
+            className="w-4 h-4 focus:ring-[var(--color-ftomain)]"
+          />
+          <label htmlFor="laki-laki" className="ml-2 text-sm text-textdesc">
+            Laki-laki
+          </label>
+            </div>
+            <div className="flex items-center">
+          <input
+            type="radio"
+            id="perempuan"
+            name="gender"
+            value="Perempuan"
+            checked={formData.gender === "Perempuan"}
+            onChange={handleInputChange}
+            className="w-4 h-4 focus:ring-[var(--color-ftomain)]"
+          />
+          <label htmlFor="perempuan" className="ml-2 text-sm text-textdesc">
+            Perempuan
+          </label>
+            </div>
+          </div>
+        </div>
+
       {/* Age */}
       <div>
         <label
@@ -86,6 +130,53 @@ export default function Step1Intro({ formData, updateFormData, onNext }) {
         {errors.age && (
           <p className="text-red-500 text-xs mt-1 ">{errors.age}</p>
         )}
+      </div>
+
+      {/* Height & Weight */}
+      <div>
+        <div className="flex space-x-4">
+          {/* Height */}
+          <div className="flex-1">
+            <label
+              htmlFor="height"
+              className="block text-sm font-semibold text-textdesc mb-2"
+            >
+              Tinggi (cm)
+            </label>
+            <input
+              type="number"
+              id="height"
+              name="height"
+              value={formData.height || ""}
+              onChange={handleInputChange}
+              placeholder="Masukkan tinggi badan"
+              min="100"
+              max="250"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-ftomain)] text-[var(--color-textplaceholder)]"
+            />
+          </div>
+
+          {/* Weight */}
+          <div className="flex-1">
+            <label
+              htmlFor="weight"
+              className="block text-sm font-semibold text-textdesc mb-2"
+            >
+              Berat (kg)
+            </label>
+            <input
+              type="number"
+              id="weight"
+              name="weight"
+              value={formData.weight || ""}
+              onChange={handleInputChange}
+              placeholder="Masukkan berat badan"
+              min="30"
+              max="200"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-ftomain)] text-[var(--color-textplaceholder)]"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Marital Status */}

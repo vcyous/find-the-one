@@ -29,6 +29,9 @@ export const addRegistration = async (formData) => {
   const reference3 = formData.reference3;
   const instagram = formData.instagram;
   const whatsapp = formData.whatsapp;
+  const height = formData.height;
+  const weight = formData.weight;
+  const gender = formData.gender;
   const source = formData.source;
 
   const payload = {
@@ -57,6 +60,9 @@ export const addRegistration = async (formData) => {
     reference3,
     instagram,
     whatsapp,
+    height,
+    weight,
+    gender,
     source,
   };
 
